@@ -1,0 +1,7 @@
+[user]
+	name = Mateo Galic
+	email = mateogalic112@gmail.com
+[core]
+	editor = code --wait
+[pull]
+	ff = only
