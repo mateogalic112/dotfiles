@@ -17,9 +17,11 @@ ln -sf $DOTFILES/.profile ~/.profile
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 
 # Raycast
-killall Raycast 2>/dev/null
+echo "Importing Raycast preferences..."
+osascript -e 'tell application "Raycast" to quit' 2>/dev/null
+sleep 1
 defaults import com.raycast.macos $DOTFILES/raycast.plist
-open -a Raycast
+echo "Raycast preferences imported. Please relaunch Raycast manually."
 
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
