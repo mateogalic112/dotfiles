@@ -25,8 +25,9 @@ mkdir -p "$CURSOR_DIR/snippets"
 cp $DOTFILES/cursor/settings.json "$CURSOR_DIR/settings.json"
 cp $DOTFILES/cursor/keybindings.json "$CURSOR_DIR/keybindings.json"
 cp $DOTFILES/cursor/snippets/* "$CURSOR_DIR/snippets/"
-if command -v cursor &>/dev/null; then
-  xargs -n1 cursor --install-extension < $DOTFILES/cursor/extensions.txt
+CURSOR_BIN="/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
+if [ -f "$CURSOR_BIN" ]; then
+  xargs -n1 "$CURSOR_BIN" --install-extension < $DOTFILES/cursor/extensions.txt
 fi
 
 # Tmux
