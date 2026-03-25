@@ -30,6 +30,11 @@ if [ -f "$CURSOR_BIN" ]; then
   xargs -n1 "$CURSOR_BIN" --install-extension < $DOTFILES/cursor/extensions.txt
 fi
 
+# Claude Code
+mkdir -p ~/.claude
+ln -sf $DOTFILES/claude/settings.json ~/.claude/settings.json
+ln -sf $DOTFILES/claude/statusline-command.sh ~/.claude/statusline-command.sh
+
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 
