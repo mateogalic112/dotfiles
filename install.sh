@@ -17,7 +17,9 @@ ln -sf $DOTFILES/.profile ~/.profile
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 
 # Raycast
-cp $DOTFILES/raycast.plist ~/Library/Preferences/com.raycast.macos.plist
+killall Raycast 2>/dev/null
+defaults import com.raycast.macos $DOTFILES/raycast.plist
+open -a Raycast
 
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
