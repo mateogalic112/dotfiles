@@ -17,11 +17,12 @@ ln -sf $DOTFILES/.profile ~/.profile
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
 
 # Raycast
-echo "Importing Raycast preferences..."
-osascript -e 'tell application "Raycast" to quit' 2>/dev/null
-sleep 1
-defaults import com.raycast.macos $DOTFILES/raycast.plist
-echo "Raycast preferences imported. Please relaunch Raycast manually."
+# Hotkeys and snippets are in an encrypted DB — plist alone won't sync them.
+# To fully sync Raycast:
+#   1. On source machine: Raycast Settings → Advanced → Export (.rayconfig)
+#   2. Save the .rayconfig file to this dotfiles directory
+#   3. On target machine: Raycast Settings → Advanced → Import
+echo "Raycast: Import $DOTFILES/*.rayconfig manually via Raycast Settings → Advanced → Import"
 
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
