@@ -1,0 +1,14 @@
+{
+  "React Functional Component (TS)": {
+    "prefix": "rfc",
+    "body": [
+      "export function ${TM_FILENAME_BASE/(^|[-_\\s]+)(\\w)/${2:/capitalize}/g}() {",
+      "  return (",
+      "    <div>${1:Here}</div>",
+      "  );",
+      "}",
+      ""
+    ],
+    "description": "React functional component boilerplate (TS)"
+  }
+}

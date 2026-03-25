@@ -1,0 +1,59 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "shift+cmd+[Backslash]",
+    "command": "editor.action.jumpToBracket",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+[Backslash]",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+[Backslash]",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+alt+cmd+[Backslash]",
+    "command": "-workbench.action.splitEditor"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "ctrl+shift+[BracketRight]",
+    "command": "editor.fold"
+  },
+  {
+    "key": "ctrl+shift+[BracketLeft]",
+    "command": "editor.unfold"
+  },
+  {
+    "key": "cmd+[BracketRight]",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "alt+cmd+[Period]",
+    "command": "workbench.action.quickOpenTerm",
+    "when": "terminalHasBeenCreated || terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+k",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalHasBeenCreated || terminalIsOpen || terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+s",
+    "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+    "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
+  },
+  {
+    "key": "cmd+alt+v",
+    "command": "toggleVim"
+  }
+]

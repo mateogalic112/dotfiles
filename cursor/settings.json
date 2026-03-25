@@ -1,0 +1,74 @@
+{
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - page.tsx",
+    "**/app/**/layout.tsx": "${dirname} - layout.tsx"
+  },
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "workbench.sideBar.location": "right",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "editor.formatOnSave": true,
+  "editor.cursorStyle": "block",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[yaml]": {
+    "editor.autoIndent": "advanced"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontSize": 15,
+  "explorer.confirmDelete": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "smooth",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "explorer.confirmDragAndDrop": false,
+  "editor.tabSize": 2,
+  "workbench.iconTheme": "vscode-icons",
+  "git.suggestSmartCommit": false,
+  "git.confirmSync": false,
+  "editor.tokenColorCustomizations": {
+    "[*]": {
+      "textMateRules": [
+        {
+          "scope": [
+            "comment",
+            "comment.line",
+            "comment.block",
+            "comment.line.documentation",
+            "punctuation.definition.comment"
+          ],
+          "settings": {
+            "foreground": "#9E9E9E"
+          }
+        }
+      ]
+    }
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "editor.lineNumbers": "relative"
+}
