@@ -5,25 +5,6 @@ return {
 	opts = {},
     },
     {
-	"williamboman/mason-lspconfig.nvim",
-	lazy = false,
-	dependencies = {
-	    "williamboman/mason.nvim",
-	    "neovim/nvim-lspconfig",
-	},
-	opts = {
-	    ensure_installed = {
-		"html",
-		"cssls",
-		"tailwindcss",
-		"eslint",
-		"jsonls",
-		"lua_ls",
-	    },
-	    automatic_installation = true,
-	},
-    },
-    {
 	"neovim/nvim-lspconfig",
 	lazy = false,
 	dependencies = {

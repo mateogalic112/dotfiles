@@ -1,13 +1,18 @@
-local function enable_transparency()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-end
 return {
     {
-	"folke/tokyonight.nvim",
-	config = function() 
-	    vim.cmd.colorscheme("tokyonight")
-	    enable_transparency()
-	end
+	"catppuccin/nvim",
+	name = "catppuccin",
+	priority = 1000,
+	opts = {
+	    transparent_background = true,
+	    integrations = {
+		neotree = true,
+	    },
+	},
+	config = function(_, opts)
+	    require("catppuccin").setup(opts)
+	    vim.cmd.colorscheme("catppuccin")
+	end,
     },
     {
 	"nvim-lualine/lualine.nvim",
@@ -15,7 +20,7 @@ return {
 	    "nvim-tree/nvim-web-devicons",
 	},
 	opts = {
-	    theme = 'tokyonight'
+	    theme = 'catppuccin'
 	}
     },
 }
