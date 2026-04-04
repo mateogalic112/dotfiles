@@ -13,7 +13,7 @@ return {
 	config = function()
 	    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-	    local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "rust_analyzer" }
+	    local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "rust_analyzer", "mdx_analyzer" }
 	    for _, server in ipairs(servers) do
 		vim.lsp.config(server, {
 		    capabilities = capabilities,
@@ -36,18 +36,9 @@ return {
 	    vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(ev)
 		    local opts = { buffer = ev.buf }
-		    vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to definition" }))
-		    vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Find references" }))
-		    vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover docs" }))
 		    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code action" }))
 		    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename symbol" }))
-		    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, vim.tbl_extend("force", opts, { desc = "Previous diagnostic" }))
-		    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, vim.tbl_extend("force", opts, { desc = "Next diagnostic" }))
 		end,
-	    })
-
-	    vim.diagnostic.config({
-		virtual_text = true,
 	    })
 	end,
     },

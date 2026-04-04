@@ -1,3 +1,3 @@
 . "$HOME/.cargo/env"
 
-export PATH="$PATH:/Users/mateo/.foundry/bin"
+export PATH="$PATH:$HOME/.foundry/bin"
