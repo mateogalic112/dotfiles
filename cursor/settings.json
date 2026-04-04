@@ -14,7 +14,7 @@
   "editor.formatOnSave": true,
   "editor.cursorStyle": "block",
   "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
     "editor.autoIndent": "advanced"
