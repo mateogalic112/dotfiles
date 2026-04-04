@@ -11,6 +11,7 @@ return {
 	    css = { "prettier" },
 	    json = { "prettier" },
 	    lua = { "stylua" },
+	    rust = { "rustfmt" },
 	},
 	format_on_save = {
 	    timeout_ms = 2000,
