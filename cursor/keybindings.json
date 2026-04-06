@@ -14,10 +14,6 @@
     "command": "workbench.action.splitEditorDown"
   },
   {
-    "key": "ctrl+alt+cmd+[Backslash]",
-    "command": "-workbench.action.splitEditor"
-  },
-  {
     "key": "cmd+i",
     "command": "composerMode.agent"
   },
