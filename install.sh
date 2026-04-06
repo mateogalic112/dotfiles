@@ -11,7 +11,6 @@ ln -sf $DOTFILES/nvim ~/.config/nvim
 ln -sf $DOTFILES/.zshrc ~/.zshrc
 ln -sf $DOTFILES/.zshenv ~/.zshenv
 ln -sf $DOTFILES/.zprofile ~/.zprofile
-ln -sf $DOTFILES/.profile ~/.profile
 
 # Git
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
