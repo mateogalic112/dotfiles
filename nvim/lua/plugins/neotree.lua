@@ -20,6 +20,13 @@ return {
 	    mappings = {
 		["l"] = "open",
 		["h"] = "close_node",
+		["O"] = {
+		    command = function(state)
+			local node = state.tree:get_node()
+			vim.fn.system({ "open", node.path })
+		    end,
+		    desc = "Open with system viewer",
+		},
 	    },
 	},
 	filesystem = {
