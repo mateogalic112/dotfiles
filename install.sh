@@ -39,7 +39,7 @@ ln -sf $DOTFILES/claude/statusline-command.sh ~/.claude/statusline-command.sh
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  ~/.tmux/plugins/tpm/bin/install_plugins
 fi
+~/.tmux/plugins/tpm/bin/install_plugins
 
 echo "Done! Restart your shell or run: source ~/.zshrc"
