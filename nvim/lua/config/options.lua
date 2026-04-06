@@ -10,6 +10,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 vim.filetype.add({ extension = { mdx = "markdown" } })
-
-
-
