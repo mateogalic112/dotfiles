@@ -21,8 +21,8 @@ echo "Raycast: Import $DOTFILES/raycast.rayconfig via Raycast Settings → Advan
 # Cursor
 CURSOR_DIR="$HOME/Library/Application Support/Cursor/User"
 mkdir -p "$CURSOR_DIR/snippets"
-cp $DOTFILES/cursor/settings.json "$CURSOR_DIR/settings.json"
-cp $DOTFILES/cursor/keybindings.json "$CURSOR_DIR/keybindings.json"
+ln -sf $DOTFILES/cursor/settings.json "$CURSOR_DIR/settings.json"
+ln -sf $DOTFILES/cursor/keybindings.json "$CURSOR_DIR/keybindings.json"
 cp $DOTFILES/cursor/snippets/* "$CURSOR_DIR/snippets/"
 CURSOR_BIN="/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
 if [ -f "$CURSOR_BIN" ]; then
