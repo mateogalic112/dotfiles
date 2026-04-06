@@ -11,8 +11,3 @@ vim.keymap.set('n', '<S-l>', '<cmd>BufferLineCycleNext<cr>', { desc = "Next buff
 vim.keymap.set('n', '<S-h>', '<cmd>BufferLineCyclePrev<cr>', { desc = "Previous buffer" })
 vim.keymap.set('n', '<leader>x', '<cmd>bp|bd #<cr>', { desc = "Close buffer" })
 vim.keymap.set('n', '<leader>X', '<cmd>BufferLineCloseOthers<cr><cmd>bd<cr>', { desc = "Close all buffers" })
-
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
