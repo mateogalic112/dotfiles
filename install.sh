@@ -34,6 +34,13 @@ mkdir -p ~/.claude
 ln -sf $DOTFILES/claude/settings.json ~/.claude/settings.json
 ln -sf $DOTFILES/claude/statusline-command.sh ~/.claude/statusline-command.sh
 
+# Warp
+mkdir -p ~/.warp/themes
+ln -sf $DOTFILES/warp/keybindings.yaml ~/.warp/keybindings.yaml
+for theme in $DOTFILES/warp/themes/*.yaml; do
+  ln -sf "$theme" ~/.warp/themes/$(basename "$theme")
+done
+
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 if [ ! -d ~/.tmux/plugins/tpm ]; then
