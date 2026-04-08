@@ -40,7 +40,7 @@ ln -sf $DOTFILES/warp/keybindings.yaml ~/.warp/keybindings.yaml
 for theme in $DOTFILES/warp/themes/*.yaml; do
   ln -sf "$theme" ~/.warp/themes/$(basename "$theme")
 done
-defaults write dev.warp.Warp-Stable Theme -string "Catppuccin Mocha"
+defaults write dev.warp.Warp-Stable Theme -string "{\"Custom\":{\"name\":\"Catppuccin Mocha\",\"path\":\"$HOME/.warp/themes/catppuccin_mocha.yaml\"}}"
 
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
