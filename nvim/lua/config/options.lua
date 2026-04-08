@@ -7,6 +7,7 @@ vim.opt.timeoutlen = 100
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank({ timeout = 200 })
+        vim.fn.setreg("+", vim.fn.getreg('"'))
     end,
 })
 vim.filetype.add({ extension = { mdx = "markdown" } })
