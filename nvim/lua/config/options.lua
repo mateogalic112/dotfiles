@@ -10,3 +10,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 vim.filetype.add({ extension = { mdx = "markdown" } })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    callback = function()
+        vim.opt_local.path:append("src")
+        vim.opt_local.suffixesadd:prepend({ ".ts", ".tsx", ".js", ".jsx" })
+    end,
+})

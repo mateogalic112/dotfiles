@@ -82,10 +82,12 @@ return {
 				{
 					type = "pwa-node",
 					request = "attach",
-					name = "Attach to process",
-					processId = require("dap.utils").pick_process,
+					name = "Attach to debugger",
+					port = 9229,
 					cwd = "${workspaceFolder}",
 					sourceMaps = true,
+					resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+					outFiles = { "${workspaceFolder}/dist/**/*.js" },
 				},
 			}
 
