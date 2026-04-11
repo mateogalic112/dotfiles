@@ -3,6 +3,12 @@ vim.opt.cursorline = true
 vim.opt.relativenumber = true
 vim.opt.shiftwidth = 2
 vim.opt.timeoutlen = 100
+vim.opt.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    pattern = "*",
+    command = "checktime",
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
