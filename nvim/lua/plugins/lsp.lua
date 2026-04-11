@@ -13,7 +13,7 @@ return {
 	config = function()
 	    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-	    local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "rust_analyzer", "mdx_analyzer" }
+	    local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "mdx_analyzer" }
 	    for _, server in ipairs(servers) do
 		vim.lsp.config(server, {
 		    capabilities = capabilities,
@@ -36,6 +36,7 @@ return {
 	    vim.api.nvim_create_autocmd("LspAttach", {
 		callback = function(ev)
 		    local opts = { buffer = ev.buf }
+		    vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
 		    vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to definition" }))
 		    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code action" }))
 		    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename symbol" }))
