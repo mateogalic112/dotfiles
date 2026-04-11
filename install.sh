@@ -42,6 +42,11 @@ for theme in $DOTFILES/warp/themes/*.yaml; do
 done
 defaults write dev.warp.Warp-Stable Theme -string "{\"Custom\":{\"name\":\"Catppuccin Mocha\",\"path\":\"$HOME/.warp/themes/catppuccin_mocha.yaml\"}}"
 
+# Lazygit
+LAZYGIT_DIR="$HOME/Library/Application Support/lazygit"
+mkdir -p "$LAZYGIT_DIR"
+ln -sf $DOTFILES/lazygit/config.yml "$LAZYGIT_DIR/config.yml"
+
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf
 if [ ! -d ~/.tmux/plugins/tpm ]; then
