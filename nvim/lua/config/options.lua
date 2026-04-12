@@ -6,15 +6,15 @@ vim.opt.timeoutlen = 100
 vim.opt.autoread = true
 
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-    pattern = "*",
-    command = "checktime",
+  pattern = "*",
+  command = "checktime",
 })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-        vim.highlight.on_yank({ timeout = 200 })
-        vim.fn.setreg("+", vim.fn.getreg('"'))
-    end,
+  callback = function()
+    vim.highlight.on_yank({ timeout = 200 })
+    vim.fn.setreg("+", vim.fn.getreg('"'))
+  end,
 })
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -23,9 +23,9 @@ vim.opt.foldlevel = 99
 vim.filetype.add({ extension = { mdx = "markdown" } })
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    callback = function()
-        vim.opt_local.path:append("src")
-        vim.opt_local.suffixesadd:prepend({ ".ts", ".tsx", ".js", ".jsx" })
-    end,
+  pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  callback = function()
+    vim.opt_local.path:append("src")
+    vim.opt_local.suffixesadd:prepend({ ".ts", ".tsx", ".js", ".jsx" })
+  end,
 })
