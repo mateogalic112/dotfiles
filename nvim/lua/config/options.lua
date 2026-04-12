@@ -16,6 +16,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.fn.setreg("+", vim.fn.getreg('"'))
     end,
 })
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+
 vim.filetype.add({ extension = { mdx = "markdown" } })
 
 vim.api.nvim_create_autocmd("FileType", {
