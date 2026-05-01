@@ -2,11 +2,15 @@ anthropic.claude-code
 bierner.color-info
 bradlc.vscode-tailwindcss
 catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
 dbaeumer.vscode-eslint
 eamodio.gitlens
+equinusocio.vsc-community-material-theme
 esbenp.prettier-vscode
 github.vscode-github-actions
 golang.go
+graphql.vscode-graphql
+graphql.vscode-graphql-syntax
 kisstkondoros.vscode-gutter-preview
 mikestead.dotenv
 pflannery.vscode-versionlens
@@ -14,8 +18,8 @@ prisma.prisma
 rust-lang.rust-analyzer
 shd101wyy.markdown-preview-enhanced
 styled-components.vscode-styled-components
+trinm1709.dracula-theme-from-intellij
 unifiedjs.vscode-mdx
 vitest.explorer
 vscode-icons-team.vscode-icons
-vscodevim.vim
 wix.vscode-import-cost
