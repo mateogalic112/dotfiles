@@ -7,7 +7,7 @@ Personal configuration files for macOS.
 - **nvim/** — Neovim config (Lazy plugin manager)
 - **cursor/** — Cursor editor settings, keybindings, snippets, and extensions
 - **claude/** — Claude Code settings and status line
-- **.zshrc / .zshenv / .zprofile / .profile** — Shell config
+- **.zshrc / .zshenv / .zprofile** — Shell config
 - **.gitconfig** — Git config
 - **.tmux.conf** — Tmux config
 - **raycast.rayconfig** — Raycast settings (import manually)
