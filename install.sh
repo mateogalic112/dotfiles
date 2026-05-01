@@ -37,6 +37,7 @@ ln -sf $DOTFILES/claude/statusline-command.sh ~/.claude/statusline-command.sh
 # Warp
 mkdir -p ~/.warp/themes
 ln -sf $DOTFILES/warp/keybindings.yaml ~/.warp/keybindings.yaml
+ln -sf $DOTFILES/warp/settings.toml ~/.warp/settings.toml
 for theme in $DOTFILES/warp/themes/*.yaml; do
   ln -sf "$theme" ~/.warp/themes/$(basename "$theme")
 done
