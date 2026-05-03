@@ -2,12 +2,12 @@
 
 [appearance.window]
 open_windows_at_custom_size = false
-zoom_level = 80
+zoom_level = 60
 override_opacity = 100
 override_blur = 64
 
 [appearance.text]
-font_name = "JetBrainsMonoNL Nerd Font Mono"
+font_name = "0xProto Nerd Font Mono"
 font_size = 20.0
 notebook_font_size = 14.0
 

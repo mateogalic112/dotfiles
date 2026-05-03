@@ -1,3 +1,5 @@
+local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "mdx_analyzer", "lua_ls" }
+
 return {
   {
     "williamboman/mason.nvim",
@@ -5,20 +7,31 @@ return {
     opts = {},
   },
   {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = servers,
+      automatic_installation = true,
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     lazy = false,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "williamboman/mason-lspconfig.nvim",
     },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local servers = { "html", "cssls", "tailwindcss", "eslint", "jsonls", "mdx_analyzer" }
       for _, server in ipairs(servers) do
-        vim.lsp.config(server, {
-          capabilities = capabilities,
-        })
-        vim.lsp.enable(server)
+        if server ~= "lua_ls" then
+          vim.lsp.config(server, {
+            capabilities = capabilities,
+          })
+          vim.lsp.enable(server)
+        end
       end
 
       vim.lsp.config("lua_ls", {

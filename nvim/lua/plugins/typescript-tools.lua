@@ -15,5 +15,8 @@ return {
     { "<leader>ru", "<cmd>TSToolsRemoveUnused<cr>", desc = "Remove unused" },
     { "<leader>mi", "<cmd>TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
     { "<leader>rf", "<cmd>TSToolsRenameFile<cr>", desc = "Rename file" },
+    { "<leader>fa", "<cmd>TSToolsFixAll<cr>", desc = "Fix all" },
+    { "<leader>gs", "<cmd>TSToolsGoToSourceDefinition<cr>", desc = "Go to source definition" },
+    { "<leader>fr", "<cmd>TSToolsFileReferences<cr>", desc = "File references" },
   },
 }
