@@ -1,11 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
+  branch = "main",
   lazy = false,
   build = ":TSUpdate",
-  main = "nvim-treesitter.configs",
-  opts = {
-    ensure_installed = {
+  config = function()
+    require("nvim-treesitter").install({
       "lua",
       "tsx",
       "typescript",
@@ -17,9 +16,26 @@ return {
       "dockerfile",
       "markdown",
       "markdown_inline",
-    },
-    auto_install = true,
-    highlight = { enable = true },
-    indent = { enable = true },
-  },
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "lua",
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "rust",
+        "html",
+        "json",
+        "yaml",
+        "dockerfile",
+        "markdown",
+      },
+      callback = function()
+        vim.treesitter.start()
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+  end,
 }
