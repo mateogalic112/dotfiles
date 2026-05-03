@@ -14,6 +14,8 @@ ln -sf $DOTFILES/.zprofile ~/.zprofile
 
 # Git
 ln -sf $DOTFILES/.gitconfig ~/.gitconfig
+mkdir -p ~/.config/git
+ln -sf $DOTFILES/git/ignore ~/.config/git/ignore
 
 # Raycast (import manually: Raycast Settings → Advanced → Import)
 echo "Raycast: Import $DOTFILES/raycast.rayconfig via Raycast Settings → Advanced → Import"
