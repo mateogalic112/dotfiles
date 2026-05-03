@@ -2,8 +2,8 @@
 
 [appearance.window]
 open_windows_at_custom_size = false
-zoom_level = 60
-override_opacity = 100
+zoom_level = 70
+override_opacity = 48
 override_blur = 64
 
 [appearance.text]
