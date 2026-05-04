@@ -7,7 +7,7 @@ override_opacity = 48
 override_blur = 64
 
 [appearance.text]
-font_name = "0xProto Nerd Font Mono"
+font_name = "JetBrainsMono Nerd Font Mono"
 font_size = 20.0
 notebook_font_size = 14.0
 
