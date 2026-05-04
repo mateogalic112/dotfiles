@@ -13,6 +13,7 @@ return {
     opts = {
       ensure_installed = servers,
       automatic_installation = true,
+      automatic_enable = false,
     },
   },
   {
