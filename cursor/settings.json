@@ -55,5 +55,9 @@
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
-  "editor.lineNumbers": "relative"
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "editor.lineNumbers": "relative",
+  "window.autoDetectColorScheme": false
 }
