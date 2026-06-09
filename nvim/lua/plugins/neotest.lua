@@ -22,6 +22,16 @@ return {
       desc = "Run file tests",
     },
     {
+      "<leader>td",
+      function()
+        -- Raise the per-test timeout for debug runs only: while paused at a
+        -- breakpoint, Jest's default 5s timeout keeps ticking and fails the
+        -- test ("Exceeded timeout of 5000 ms"), killing the debug session.
+        require("neotest").run.run({ strategy = "dap", extra_args = { "--testTimeout=600000" } })
+      end,
+      desc = "Debug nearest test (DAP)",
+    },
+    {
       "<leader>ts",
       function()
         require("neotest").summary.toggle()
@@ -51,16 +61,29 @@ return {
     },
   },
   config = function()
+    local jest = require("neotest-jest")({
+      -- Run jest through `node` directly (not `npx`) so the DAP strategy
+      -- attaches to the jest process itself. With `npx`, the debugger
+      -- attaches to the npx wrapper, which forks jest and exits — the
+      -- session terminates instantly.
+      jestCommand = "node node_modules/jest/bin/jest.js --runInBand",
+      env = { NODE_ENV = "test" },
+      cwd = function()
+        return vim.fn.getcwd()
+      end,
+    })
+
+    -- neotest-jest's default filter_dir only excludes node_modules, so it
+    -- crawls dist/ (compiled output + .js.map) and chokes parsing them
+    -- ("Invalid language name"), which breaks discovery and the DAP run.
+    -- Restrict discovery to source dirs.
+    local ignored = { ["node_modules"] = true, dist = true, coverage = true, logs = true, [".git"] = true }
+    jest.filter_dir = function(name)
+      return not ignored[name]
+    end
+
     require("neotest").setup({
-      adapters = {
-        require("neotest-jest")({
-          jestCommand = "npx jest --runInBand",
-          env = { NODE_ENV = "test" },
-          cwd = function()
-            return vim.fn.getcwd()
-          end,
-        }),
-      },
+      adapters = { jest },
     })
   end,
 }
