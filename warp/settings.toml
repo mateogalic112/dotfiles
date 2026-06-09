@@ -2,7 +2,7 @@
 
 [appearance.window]
 open_windows_at_custom_size = false
-zoom_level = 70
+zoom_level = 80
 override_opacity = 48
 override_blur = 64
 
@@ -89,6 +89,7 @@ agent_mode_execute_readonly_commands = true
 voice_input_toggle_key = "fn"
 
 [terminal]
+osc52_clipboard_access = "write_only"
 
 [terminal.input]
 input_box_type_setting = "universal"
