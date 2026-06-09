@@ -6,7 +6,6 @@
   "editor.snippetSuggestions": "top",
   "editor.suggestSelection": "first",
   "workbench.sideBar.location": "right",
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
