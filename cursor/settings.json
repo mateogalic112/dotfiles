@@ -1,22 +1,22 @@
 {
   "workbench.editor.customLabels.patterns": {
     "**/app/**/page.tsx": "${dirname} - page.tsx",
-    "**/app/**/layout.tsx": "${dirname} - layout.tsx"
+    "**/app/**/layout.tsx": "${dirname} - layout.tsx",
   },
   "editor.snippetSuggestions": "top",
   "editor.suggestSelection": "first",
   "workbench.sideBar.location": "right",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
+    "source.fixAll.eslint": "always",
   },
   "editor.formatOnSave": true,
   "editor.cursorStyle": "block",
   "[yaml]": {
-    "editor.autoIndent": "advanced"
+    "editor.autoIndent": "advanced",
   },
   "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
+    "editor.defaultFormatter": "Prisma.prisma",
   },
   "editor.fontSize": 15,
   "explorer.confirmDelete": false,
@@ -25,7 +25,7 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "smooth",
   "[go]": {
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.go",
   },
   "workbench.colorTheme": "Catppuccin Macchiato",
   "explorer.confirmDragAndDrop": false,
@@ -42,21 +42,23 @@
             "comment.line",
             "comment.block",
             "comment.line.documentation",
-            "punctuation.definition.comment"
+            "punctuation.definition.comment",
           ],
           "settings": {
-            "foreground": "#9E9E9E"
-          }
-        }
-      ]
-    }
+            "foreground": "#9E9E9E",
+          },
+        },
+      ],
+    },
   },
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
   },
   "editor.lineNumbers": "relative",
-  "window.autoDetectColorScheme": false
+  "window.autoDetectColorScheme": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.graph.layout": "editor",
 }

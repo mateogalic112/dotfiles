@@ -82,6 +82,9 @@ cloud_conversation_storage_enabled = true
 [agents.warp_agent.input]
 nld_in_terminal_enabled = true
 
+[agents.warp_agent.other]
+should_render_use_agent_toolbar_for_user_commands = false
+
 [agents.profiles]
 agent_mode_execute_readonly_commands = true
 

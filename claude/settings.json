@@ -1,4 +1,5 @@
 {
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -30,5 +31,7 @@
       }
     }
   },
+  "tui": "fullscreen",
+  "theme": "dark",
   "voiceEnabled": true
 }
