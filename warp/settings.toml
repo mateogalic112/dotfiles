@@ -8,7 +8,7 @@ override_blur = 64
 
 [appearance.text]
 font_name = "JetBrainsMono Nerd Font Mono"
-font_size = 20.0
+font_size = 22.0
 notebook_font_size = 14.0
 
 [appearance.themes]

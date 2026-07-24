@@ -1,3 +1,7 @@
-require("config.options")
-require("config.keybinds")
-require("config.lazy")
+-- Neovim configuration — starting from scratch.
+-- ~/.config/nvim is symlinked to ~/dotfiles/nvim (tracked in git).
+--
+-- Build up from here, e.g.:
+--   vim.g.mapleader = " "
+--   require("config.options")
+--   require("config.lazy")   -- bootstrap a plugin manager

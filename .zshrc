@@ -47,3 +47,4 @@ nic() {
   tmux attach-session -t "$session_name"
 }
 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
