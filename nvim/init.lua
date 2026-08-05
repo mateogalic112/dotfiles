@@ -3,12 +3,17 @@ vim.g.mapleader = " "
 
 -- Line Numbers
 vim.o.relativenumber = true
+vim.o.number = true
 
 -- Window Navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go Left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go Down" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go Up" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go Right" })
+
+-- Buffer Navigation
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- Indentation
 vim.opt.expandtab = true
@@ -69,6 +74,15 @@ vim.diagnostic.config({
 })
 
 -- Snacks
+-- Guarded so re-sourcing this file doesn't error: snacks.setup runs once per session
+if not require("snacks").did_setup then
+  require("snacks").setup({
+    picker = {
+      focus = "list",
+    },
+  })
+end
+
 vim.keymap.set("n", "<leader>ff", function()
   Snacks.picker.files({ hidden = true })
 end, { desc = "Find Files" })
