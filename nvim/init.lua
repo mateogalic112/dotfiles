@@ -60,10 +60,10 @@ vim.diagnostic.config({
   severity_sort = true,
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "󰅚",
-      [vim.diagnostic.severity.WARN] = "󰀪",
-      [vim.diagnostic.severity.INFO] = "󰋽",
-      [vim.diagnostic.severity.HINT] = "󰌶",
+      [vim.diagnostic.severity.ERROR] = " 󰅚",
+      [vim.diagnostic.severity.WARN] = " 󰀪",
+      [vim.diagnostic.severity.INFO] = " 󰋽",
+      [vim.diagnostic.severity.HINT] = " 󰌶",
     },
   },
 })
@@ -73,14 +73,47 @@ vim.keymap.set("n", "<leader>ff", function()
   Snacks.picker.files({ hidden = true })
 end, { desc = "Find Files" })
 
--- Formatting
+vim.keymap.set("n", "<leader>fb", function()
+  Snacks.picker.buffers()
+end, { desc = "Find buffers" })
+
 require("conform").setup({
+  -- Prettier resolves from the project's node_modules, falling back to the LSP
+  -- formatter in projects without it
   formatters_by_ft = {
     lua = { "stylua" },
+    javascript = { "prettier" },
+    javascriptreact = { "prettier" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    json = { "prettier" },
+    jsonc = { "prettier" },
+    css = { "prettier" },
+    html = { "prettier" },
+    markdown = { "prettier" },
+    yaml = { "prettier" },
+  },
+  default_format_opts = {
+    stop_after_first = true,
   },
   format_on_save = {
-    timeout_ms = 500,
+    timeout_ms = 1000,
     lsp_format = "fallback",
+  },
+})
+
+-- Colorscheme
+require("gruvbox").setup({
+  -- Blend the sign column into the buffer background
+  overrides = {
+    SignColumn = { bg = "NONE" },
+    GruvboxRedSign = { bg = "NONE" },
+    GruvboxGreenSign = { bg = "NONE" },
+    GruvboxYellowSign = { bg = "NONE" },
+    GruvboxBlueSign = { bg = "NONE" },
+    GruvboxPurpleSign = { bg = "NONE" },
+    GruvboxAquaSign = { bg = "NONE" },
+    GruvboxOrangeSign = { bg = "NONE" },
   },
 })
 
