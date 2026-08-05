@@ -2,8 +2,10 @@
 vim.g.mapleader = " "
 
 -- Line Numbers
-vim.o.relativenumber = true
-vim.o.number = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 
 -- Window Navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go Left" })
@@ -65,10 +67,10 @@ vim.diagnostic.config({
   severity_sort = true,
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = " 󰅚",
-      [vim.diagnostic.severity.WARN] = " 󰀪",
-      [vim.diagnostic.severity.INFO] = " 󰋽",
-      [vim.diagnostic.severity.HINT] = " 󰌶",
+      [vim.diagnostic.severity.ERROR] = "󰅚",
+      [vim.diagnostic.severity.WARN] = "󰀪",
+      [vim.diagnostic.severity.INFO] = "󰋽",
+      [vim.diagnostic.severity.HINT] = "󰌶",
     },
   },
 })
@@ -118,8 +120,8 @@ require("conform").setup({
 
 -- Colorscheme
 require("gruvbox").setup({
-  -- Blend the sign column into the buffer background
   overrides = {
+    CursorLineNr = { bold = true, bg = "NONE" },
     SignColumn = { bg = "NONE" },
     GruvboxRedSign = { bg = "NONE" },
     GruvboxGreenSign = { bg = "NONE" },
