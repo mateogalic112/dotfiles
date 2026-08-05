@@ -56,6 +56,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, {
       autotrigger = true,
     })
+
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "Go to Definition" })
   end,
 })
 
@@ -81,6 +83,14 @@ if not require("snacks").did_setup then
   require("snacks").setup({
     picker = {
       focus = "list",
+      sources = {
+        -- Centered float instead of the default sidebar
+        explorer = {
+          layout = { preset = "default", preview = true, layout = { backdrop = 60 } },
+          auto_close = true,
+          jump = { close = true },
+        },
+      },
     },
   })
 end
@@ -92,6 +102,10 @@ end, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fb", function()
   Snacks.picker.buffers()
 end, { desc = "Find buffers" })
+
+vim.keymap.set("n", "<leader>e", function()
+  Snacks.explorer()
+end, { desc = "File Explorer" })
 
 require("conform").setup({
   -- Prettier resolves from the project's node_modules, falling back to the LSP
