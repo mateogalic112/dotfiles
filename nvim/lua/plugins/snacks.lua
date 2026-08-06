@@ -8,6 +8,10 @@ require("snacks").setup({
         jump = { close = true },
       },
       lazygit = { enabled = true },
+      files = {
+        hidden = true,
+        ignored = true,
+      },
     },
   },
 })
