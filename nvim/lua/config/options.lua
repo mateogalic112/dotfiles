@@ -10,3 +10,11 @@ vim.opt.cursorlineopt = "number"
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
+
+-- Autocompletion
+vim.opt.completeopt = {
+  "menu",
+  "menuone",
+  "noselect",
+  "popup",
+}
