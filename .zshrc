@@ -48,3 +48,4 @@ nic() {
 }
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+eval "$(starship init zsh)"
