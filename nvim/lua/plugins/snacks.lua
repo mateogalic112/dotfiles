@@ -12,6 +12,9 @@ require("snacks").setup({
         hidden = true,
         ignored = true,
       },
+      -- Defaults to git_checkout, which checks the commit out by SHA and
+      -- detaches HEAD. The preview already shows the diff, so just close
+      git_log = { confirm = "close" },
     },
   },
 })
