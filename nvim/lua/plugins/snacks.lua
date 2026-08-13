@@ -35,3 +35,15 @@ end, { desc = "File Explorer" })
 vim.keymap.set("n", "<leader>gg", function()
   Snacks.lazygit.open()
 end, { desc = "Open LazyGit" })
+
+vim.keymap.set("n", "<leader>gs", function()
+  Snacks.picker.git_status()
+end, { desc = "Git Status" })
+
+vim.keymap.set("n", "<leader>gl", function()
+  Snacks.picker.git_log()
+end, { desc = "Git Log" })
+
+vim.keymap.set("n", "<leader>gb", function()
+  Snacks.picker.git_branches()
+end, { desc = "Git Branches" })
