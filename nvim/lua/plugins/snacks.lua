@@ -35,6 +35,10 @@ vim.keymap.set("n", "<leader>e", function()
   Snacks.explorer()
 end, { desc = "File Explorer" })
 
+vim.keymap.set("n", "<leader>bd", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
+
 vim.keymap.set("n", "<leader>gg", function()
   Snacks.lazygit.open()
 end, { desc = "Open LazyGit" })
