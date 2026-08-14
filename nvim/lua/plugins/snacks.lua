@@ -1,4 +1,12 @@
 require("snacks").setup({
+  dashboard = {
+    enabled = true,
+    sections = {
+      { section = "header" },
+      { section = "keys", gap = 1, padding = 1 },
+    },
+  },
+
   picker = {
     sources = {
       -- Centered float instead of the default sidebar
