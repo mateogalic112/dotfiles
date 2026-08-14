@@ -20,17 +20,9 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "warp@claude-code-warp": true
+    "figma@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "claude-code-warp": {
-      "source": {
-        "source": "github",
-        "repo": "warpdotdev/claude-code-warp"
-      }
-    }
-  },
+  "extraKnownMarketplaces": {},
   "tui": "fullscreen",
   "theme": "dark",
   "voiceEnabled": true
