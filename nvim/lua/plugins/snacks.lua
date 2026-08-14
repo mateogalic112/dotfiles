@@ -14,6 +14,8 @@ require("snacks").setup({
         layout = { preset = "default", preview = true, layout = { backdrop = 60 } },
         auto_close = true,
         jump = { close = true },
+        hidden = true,
+        ignored = true,
       },
       lazygit = { enabled = true },
       files = {
