@@ -4,7 +4,7 @@ Personal configuration files for macOS.
 
 ## Contents
 
-- **nvim/** — Neovim config (Lazy plugin manager)
+- **nvim/** — Neovim config 
 - **claude/** — Claude Code settings and status line
 - **.zshrc / .zshenv / .zprofile** — Shell config
 - **.gitconfig** — Git config
@@ -13,10 +13,9 @@ Personal configuration files for macOS.
 
 ## Setup on a new machine
 
-```bash
-# Install dependencies
-brew install neovim tmux
+Requires [Homebrew](https://brew.sh). Everything else is installed by the script.
 
+```bash
 # Clone the repo
 git clone git@github.com:mateogalic112/dotfiles.git ~/dotfiles
 
@@ -25,4 +24,9 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-Neovim plugins auto-install via Lazy on first launch. Tmux plugins install via tpm, which the script clones if missing.
+`install.sh` installs neovim, tmux, starship, ripgrep, lazygit, stylua, and node via
+Homebrew, plus the `vtsls` and `tailwindcss` language servers via npm — then symlinks
+every config. It is idempotent, so re-running it after a config change is safe.
+
+Neovim plugins and treesitter parsers install themselves on first launch. Tmux plugins
+install via tpm, which the script clones if missing.
