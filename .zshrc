@@ -12,7 +12,7 @@ gcp() {
   git push
 }
 
-# Open project in tmux: nvim (left, full-height) | terminal (top-right 40%) / claude (bottom-right 60%)
+# Open project in tmux: nvim (left 70%, full-height) | claude (top-right 60%) / terminal (bottom-right 40%)
 nic() {
   local session_name="$(basename "$PWD")"
 
@@ -31,15 +31,15 @@ nic() {
   # Create session (pane 1: will become neovim, left column, full height)
   tmux new-session -d -s "$session_name" -c "$PWD" -x "$(tput cols)" -y "$(tput lines)"
 
-  # Split right for the claude/terminal column (40% width, full height)
-  tmux split-window -h -t "$session_name":1.1 -c "$PWD" -l 40%
+  # Split right for the claude/terminal column (nvim keeps 70%)
+  tmux split-window -h -t "$session_name":1.1 -c "$PWD" -l 30%
 
-  # Split that right column: claude on the bottom (60% of column height)
-  tmux split-window -v -t "$session_name":1.2 -c "$PWD" -l 60%
+  # Split that right column: terminal on the bottom
+  tmux split-window -v -t "$session_name":1.2 -c "$PWD" -l 40%
 
-  # Pane layout: 1=neovim (left), 2=terminal (top-right), 3=claude (bottom-right)
+  # Pane layout: 1=neovim (left), 2=claude (top-right), 3=terminal (bottom-right)
   tmux send-keys -t "$session_name":1.1 'nvim' C-m
-  tmux send-keys -t "$session_name":1.3 'claude' C-m
+  tmux send-keys -t "$session_name":1.2 'claude' C-m
 
   # Focus on neovim pane
   tmux select-pane -t "$session_name":1.1
@@ -48,4 +48,5 @@ nic() {
 }
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
 eval "$(starship init zsh)"
