@@ -2,6 +2,6 @@
 	name = Mateo Galic
 	email = mateogalic112@gmail.com
 [core]
-	editor = cursor --wait
+	editor = nvim
 [pull]
 	ff = only

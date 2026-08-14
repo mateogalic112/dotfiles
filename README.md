@@ -5,12 +5,11 @@ Personal configuration files for macOS.
 ## Contents
 
 - **nvim/** — Neovim config (Lazy plugin manager)
-- **cursor/** — Cursor editor settings, keybindings, snippets, and extensions
 - **claude/** — Claude Code settings and status line
 - **.zshrc / .zshenv / .zprofile** — Shell config
 - **.gitconfig** — Git config
+- **git/ignore** — Global gitignore (linked to `~/.config/git/ignore`)
 - **.tmux.conf** — Tmux config
-- **raycast.rayconfig** — Raycast settings (import manually)
 
 ## Setup on a new machine
 
@@ -26,4 +25,4 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-Neovim plugins auto-install via Lazy on first launch. Cursor extensions install automatically if Cursor is installed. Raycast config must be imported manually via Raycast Settings → Advanced → Import.
+Neovim plugins auto-install via Lazy on first launch. Tmux plugins install via tpm, which the script clones if missing.
