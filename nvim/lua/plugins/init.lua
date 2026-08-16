@@ -8,6 +8,7 @@ vim.pack.add({
   "https://github.com/sindrets/diffview.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/akinsho/bufferline.nvim",
+  "https://github.com/windwp/nvim-autopairs",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
 })
@@ -21,3 +22,4 @@ require("plugins.diffview")
 require("plugins.conform")
 require("plugins.colorscheme")
 require("plugins.bufferline")
+require("plugins.autopairs")

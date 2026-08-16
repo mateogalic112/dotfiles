@@ -3,6 +3,9 @@
 local parsers = {
   "bash",
   "css",
+  "go",
+  "gomod",
+  "gowork",
   "html",
   "javascript",
   "json",

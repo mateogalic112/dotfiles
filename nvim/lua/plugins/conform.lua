@@ -3,6 +3,7 @@ require("conform").setup({
   -- formatter in projects without it
   formatters_by_ft = {
     lua = { "stylua" },
+    go = { "goimports" },
     javascript = { "prettier" },
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
