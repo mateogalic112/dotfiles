@@ -18,6 +18,7 @@ vim.lsp.config("gopls", {
 vim.lsp.enable("vtsls")
 vim.lsp.enable("tailwindcss")
 vim.lsp.enable("gopls")
+vim.lsp.enable("eslint")
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
