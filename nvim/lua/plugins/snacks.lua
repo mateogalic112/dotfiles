@@ -14,14 +14,8 @@ require("snacks").setup({
         layout = { preset = "default", preview = true, layout = { backdrop = 60 } },
         auto_close = true,
         jump = { close = true },
-        hidden = true,
-        ignored = true,
       },
       lazygit = { enabled = true },
-      files = {
-        hidden = true,
-        ignored = true,
-      },
       -- Defaults to git_checkout, which checks the commit out by SHA and
       -- detaches HEAD. The preview already shows the diff, so just close
       git_log = { confirm = "close" },
@@ -30,7 +24,7 @@ require("snacks").setup({
 })
 
 vim.keymap.set("n", "<leader>ff", function()
-  Snacks.picker.files({ hidden = true })
+  Snacks.picker.files()
 end, { desc = "Find Files" })
 
 vim.keymap.set("n", "<leader>fb", function()

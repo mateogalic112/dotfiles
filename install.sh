@@ -9,7 +9,7 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-BREW_PACKAGES=(neovim tmux starship ripgrep lazygit stylua node go vscode-langservers-extracted)
+BREW_PACKAGES=(neovim tmux starship ripgrep fd lazygit stylua node go vscode-langservers-extracted)
 for pkg in "${BREW_PACKAGES[@]}"; do
   brew list --versions "$pkg" >/dev/null 2>&1 || brew install "$pkg"
 done
@@ -38,6 +38,10 @@ ln -sf $DOTFILES/git/ignore ~/.config/git/ignore
 mkdir -p ~/.claude
 ln -sf $DOTFILES/claude/settings.json ~/.claude/settings.json
 ln -sf $DOTFILES/claude/statusline-command.sh ~/.claude/statusline-command.sh
+
+# Ghostty
+mkdir -p ~/.config/ghostty
+ln -sf $DOTFILES/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
 
 # Tmux
 ln -sf $DOTFILES/.tmux.conf ~/.tmux.conf

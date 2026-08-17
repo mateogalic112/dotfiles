@@ -1,0 +1,59 @@
+# ─────────────────────────────────────────────
+# Font
+# ─────────────────────────────────────────────
+
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+
+# ─────────────────────────────────────────────
+# Appearance
+# ─────────────────────────────────────────────
+
+theme = Gruvbox Dark
+
+background-opacity = 0.9
+background-blur = 20
+
+# Important for Neovim/tmux transparency
+background-opacity-cells = true
+
+
+# ─────────────────────────────────────────────
+# Cursor
+# ─────────────────────────────────────────────
+
+cursor-style = block
+cursor-style-blink = false
+
+mouse-hide-while-typing = true
+
+
+# ─────────────────────────────────────────────
+# Keyboard
+# ─────────────────────────────────────────────
+
+# Right Option sends Alt, so TUI chords like <a-h>/<a-i> reach Neovim.
+# Left Option stays a compose key for accented characters.
+macos-option-as-alt = right
+
+
+# ─────────────────────────────────────────────
+# Clipboard
+# ─────────────────────────────────────────────
+
+copy-on-select = false
+
+
+# ─────────────────────────────────────────────
+# Scrollback
+# ─────────────────────────────────────────────
+
+scrollback-limit = 100000000
+
+
+# ─────────────────────────────────────────────
+# Shell integration
+# ─────────────────────────────────────────────
+
+shell-integration = zsh
+
