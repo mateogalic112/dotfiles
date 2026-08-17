@@ -9,12 +9,16 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-BREW_PACKAGES=(neovim tmux starship ripgrep lazygit stylua node)
+BREW_PACKAGES=(neovim tmux starship ripgrep lazygit stylua node go)
 for pkg in "${BREW_PACKAGES[@]}"; do
   brew list --versions "$pkg" >/dev/null 2>&1 || brew install "$pkg"
 done
 
 npm install -g @vtsls/language-server @tailwindcss/language-server
+
+# Go tooling lands in ~/go/bin, which .zshenv puts on PATH
+go install golang.org/x/tools/gopls@latest
+go install golang.org/x/tools/cmd/goimports@latest
 
 # Neovim
 mkdir -p ~/.config
