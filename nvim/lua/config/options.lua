@@ -6,6 +6,10 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- Indentation
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
