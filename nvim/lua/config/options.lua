@@ -9,6 +9,8 @@ vim.opt.cursorlineopt = "number"
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.inccommand = "split"
+vim.opt.grepprg = "rg --vimgrep --smart-case"
 
 -- Indentation
 vim.opt.expandtab = true
