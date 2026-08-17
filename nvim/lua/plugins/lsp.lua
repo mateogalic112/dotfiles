@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("grr", Snacks.picker.lsp_references, "References")
     map("gri", Snacks.picker.lsp_implementations, "Implementations")
     map("grt", Snacks.picker.lsp_type_definitions, "Type Definition")
+    map("grc", Snacks.picker.lsp_incoming_calls, "Incoming Calls")
     map("gO", Snacks.picker.lsp_symbols, "Symbols (Buffer)")
     map("<leader>ss", Snacks.picker.lsp_symbols, "Symbols (Buffer)")
     map("<leader>sS", Snacks.picker.lsp_workspace_symbols, "Symbols (Workspace)")
