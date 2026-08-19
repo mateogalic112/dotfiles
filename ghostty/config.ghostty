@@ -11,11 +11,12 @@ font-size = 14
 
 theme = Gruvbox Dark
 
-background-opacity = 0.9
+background-opacity = 0.8
 background-blur = 20
 
-# Important for Neovim/tmux transparency
-background-opacity-cells = true
+# Only cells with the default background go transparent, so tmux panes
+# see through while selections and syntax highlighting stay crisp.
+background-opacity-cells = false
 
 
 # ─────────────────────────────────────────────
