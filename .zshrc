@@ -1,4 +1,23 @@
-export CLAUDE_CODE_STATUS_LINE=1
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
+
+fpath=("${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions" $fpath)
+autoload -Uz compinit
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zcompdump"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Sourcing nvm.sh costs ~1.4s, so it is deferred until a node tool is first
+# called. The shims replace themselves with the real commands on first use.
+NVM_SH="/opt/homebrew/opt/nvm/nvm.sh"
+if [ -s "$NVM_SH" ]; then
+  for cmd in nvm node npm npx corepack; do
+    eval "${cmd}() { unfunction nvm node npm npx corepack; . \"\$NVM_SH\"; ${cmd} \"\$@\" }"
+  done
+  unset cmd
+fi
 
 # Kill process on a port
 kp() {
@@ -46,7 +65,5 @@ nic() {
 
   tmux attach-session -t "$session_name"
 }
-
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 eval "$(starship init zsh)"
