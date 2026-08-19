@@ -1,0 +1,47 @@
+format = """
+
+$directory\
+
+$git_branch\
+
+$git_status\
+
+$git_metrics\
+
+$line_break\
+
+$character
+
+"""
+
+[git_branch]
+
+symbol = " "
+
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+
+format = "[$all_status$ahead_behind]($style) "
+
+modified = "*${count} "
+
+untracked = "?${count} "
+
+ahead = "⇡${count} "
+
+behind = "⇣${count} "
+
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+
+[git_metrics]
+
+disabled = false
+
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+
+[character]
+
+success_symbol = "[❯](bold green)"
+
+error_symbol = "[❯](bold red)"
