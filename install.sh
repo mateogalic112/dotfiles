@@ -22,7 +22,7 @@ go install golang.org/x/tools/cmd/goimports@latest
 
 # Neovim
 mkdir -p ~/.config
-ln -sf $DOTFILES/nvim ~/.config/nvim
+ln -sfn "$DOTFILES/nvim" ~/.config/nvim
 
 # Shell
 ln -sf $DOTFILES/.zshrc ~/.zshrc
