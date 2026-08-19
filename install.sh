@@ -41,6 +41,9 @@ mkdir -p ~/.claude
 ln -sf "$DOTFILES/claude/settings.json" ~/.claude/settings.json
 ln -sf "$DOTFILES/claude/statusline-command.sh" ~/.claude/statusline-command.sh
 
+# Starship
+ln -sf "$DOTFILES/starship/starship.toml" ~/.config/starship.toml
+
 # Ghostty
 mkdir -p ~/.config/ghostty
 ln -sf "$DOTFILES/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
