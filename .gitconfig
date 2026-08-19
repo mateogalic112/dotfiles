@@ -5,3 +5,15 @@
 	editor = nvim
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+[rebase]
+	autostash = true
+[diff]
+	algorithm = histogram
+[commit]
+	verbose = true
