@@ -25,5 +25,6 @@
   "extraKnownMarketplaces": {},
   "tui": "fullscreen",
   "theme": "dark",
+  "editorMode": "vim",
   "voiceEnabled": true
 }
