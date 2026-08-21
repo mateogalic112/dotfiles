@@ -1,5 +1,6 @@
-# Dedupes PATH; without it each nested shell re-prepends the .zprofile entries
-typeset -U path PATH
+# Dedupes PATH; without it each nested shell re-prepends the .zprofile entries.
+# fpath needs the same treatment: brew shellenv and .zshrc both add site-functions
+typeset -U path PATH fpath FPATH
 
 # Used by lazygit, gh, crontab and fc (git reads core.editor from .gitconfig)
 export EDITOR="nvim"
