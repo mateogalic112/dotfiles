@@ -1,4 +1,7 @@
 local colors = {
+  -- Ghostty's background image shows through any cell we leave unpainted, so the
+  -- bar stays transparent like the editor surface (see colorscheme.lua).
+  bg = "NONE",
   fg = "#a89984",
   dim = "#7c6f64",
   branch = "#fe8019",
@@ -12,23 +15,23 @@ local colors = {
   command = "#d3869b",
 }
 
--- Every section stays bg=NONE so panes remain transparent to Ghostty's
--- background-opacity; only the mode accent changes between modes.
-local function transparent(accent)
+-- Every section shares one background so the bar reads as a single unpainted
+-- strip; only the mode accent changes between modes.
+local function section(accent)
   return {
-    a = { fg = accent, bg = "NONE", gui = "bold" },
-    b = { fg = colors.fg, bg = "NONE" },
-    c = { fg = colors.fg, bg = "NONE" },
+    a = { fg = accent, bg = colors.bg, gui = "bold" },
+    b = { fg = colors.fg, bg = colors.bg },
+    c = { fg = colors.fg, bg = colors.bg },
   }
 end
 
 local theme = {
-  normal = transparent(colors.normal),
-  insert = transparent(colors.insert),
-  visual = transparent(colors.visual),
-  replace = transparent(colors.replace),
-  command = transparent(colors.command),
-  inactive = transparent(colors.dim),
+  normal = section(colors.normal),
+  insert = section(colors.insert),
+  visual = section(colors.visual),
+  replace = section(colors.replace),
+  command = section(colors.command),
+  inactive = section(colors.dim),
 }
 
 local function gitsigns_diff()

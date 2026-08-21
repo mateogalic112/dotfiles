@@ -12,18 +12,17 @@ font-size = 14
 theme = Gruvbox Dark
 
 # Gruvbox ships a cream #ebdbb2 as both foreground and bright-white, which
-# reads dim against the translucent background. Override after the theme so
+# reads dim against the dark background. Override after the theme so
 # these win over it. Backgrounds and accents stay gruvbox; text goes off-white.
 foreground = #e8e8e8
 palette = 7=#ebdbb2
 palette = 15=#f2f2f2
 
-background-opacity = 0.8
-background-blur = 20
 
-# Only cells with the default background go transparent, so tmux panes
-# see through while selections and syntax highlighting stay crisp.
-background-opacity-cells = false
+background-image = /Users/mateo/dotfiles/assets/city.png
+background-image-opacity = 0.6
+background-image-position = center
+background-image-fit = cover
 
 
 # ─────────────────────────────────────────────
