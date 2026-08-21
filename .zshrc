@@ -74,5 +74,8 @@ ZSH_PLUGINS="${HOMEBREW_PREFIX:-/opt/homebrew}/share"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# Bound after the source above, which is where autosuggest-accept comes from
+bindkey '^Y' autosuggest-accept
+
 # Must stay last: it wraps every widget defined before it
 source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
