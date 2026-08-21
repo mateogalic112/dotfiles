@@ -7,6 +7,11 @@ require("snacks").setup({
     },
   },
 
+  bigfile = { enabled = true }, -- reduces expensive features for very large files
+  quickfile = { enabled = true }, -- displays files faster during startup
+  notifier = { enabled = true }, -- nicer notifications
+  words = { enabled = true }, -- auto-highlights LSP refs under cursor
+
   picker = {
     sources = {
       -- Centered float instead of the default sidebar

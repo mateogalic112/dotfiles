@@ -27,6 +27,10 @@ vim.lsp.config("lua_ls", {
           vim.env.VIMRUNTIME,
         },
       },
+      -- Snacks is a runtime global created by snacks.nvim's setup
+      diagnostics = {
+        globals = { "Snacks" },
+      },
     },
   },
 })
