@@ -18,7 +18,7 @@ done
 
 command -v vtsls >/dev/null 2>&1 || npm install -g @vtsls/language-server
 
-# Go tooling lands in ~/go/bin, which .zshenv puts on PATH
+# Go tooling lands in ~/go/bin, which .zprofile puts on PATH
 command -v gopls >/dev/null 2>&1 || go install golang.org/x/tools/gopls@latest
 command -v goimports >/dev/null 2>&1 || go install golang.org/x/tools/cmd/goimports@latest
 
