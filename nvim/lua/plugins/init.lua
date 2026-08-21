@@ -10,6 +10,7 @@ vim.pack.add({
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/windwp/nvim-autopairs",
+  "https://github.com/folke/flash.nvim",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
 })
@@ -25,3 +26,4 @@ require("plugins.colorscheme")
 require("plugins.bufferline")
 require("plugins.lualine")
 require("plugins.autopairs")
+require("plugins.flash")
