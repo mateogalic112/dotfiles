@@ -26,3 +26,7 @@ vim.opt.scrolloff = 8
 -- Splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Other
+vim.o.updatetime = 200
+vim.o.confirm = true
