@@ -1,4 +1,8 @@
-require("flash").setup({})
+require("flash").setup({
+  modes = {
+    search = { enabled = true },
+  },
+})
 
 vim.keymap.set({ "n", "x", "o" }, "s", function()
   require("flash").jump()
