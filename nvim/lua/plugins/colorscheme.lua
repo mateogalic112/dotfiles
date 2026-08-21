@@ -5,8 +5,8 @@ require("gruvbox").setup({
   overrides = {
     -- transparent_mode skips these two, so the statusline keeps a bg2 strip that
     -- shows through lualine's own unpainted sections
-    StatusLine = { bg = "NONE" },
-    StatusLineNC = { bg = "NONE" },
+    StatusLine = { bg = "#37383F" },
+    StatusLineNC = { bg = "#37383F" },
     CursorLineNr = { bold = true, bg = "NONE" },
     -- FlashLabel links to Substitute, which links to Search, so the label would
     -- otherwise render in the same yellow as the matches it labels
