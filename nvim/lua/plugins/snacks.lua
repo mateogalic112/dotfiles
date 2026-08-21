@@ -65,6 +65,16 @@ vim.keymap.set("n", "<leader>sr", function()
   Snacks.picker.resume()
 end, { desc = "Resume Last Picker" })
 
+-- words only highlights the references; jumping needs its own keymaps.
+-- Overrides the built-in paragraph/section motions in normal mode.
+vim.keymap.set("n", "]]", function()
+  Snacks.words.jump(vim.v.count1)
+end, { desc = "Next Reference" })
+
+vim.keymap.set("n", "[[", function()
+  Snacks.words.jump(-vim.v.count1)
+end, { desc = "Prev Reference" })
+
 vim.keymap.set("n", "<leader>e", function()
   Snacks.explorer()
 end, { desc = "File Explorer" })
