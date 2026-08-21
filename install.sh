@@ -11,7 +11,7 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-BREW_PACKAGES=(neovim tmux starship ripgrep fd lazygit stylua node go ruby vscode-langservers-extracted tailwindcss-language-server lua-language-server bash-language-server)
+BREW_PACKAGES=(neovim tmux starship ripgrep fd lazygit stylua node go ruby vscode-langservers-extracted tailwindcss-language-server lua-language-server bash-language-server zsh-autosuggestions zsh-syntax-highlighting)
 for pkg in "${BREW_PACKAGES[@]}"; do
   brew list --versions "$pkg" >/dev/null 2>&1 || brew install "$pkg"
 done

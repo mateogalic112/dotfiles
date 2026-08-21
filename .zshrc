@@ -67,3 +67,12 @@ nic() {
 }
 
 eval "$(starship init zsh)"
+
+ZSH_PLUGINS="${HOMEBREW_PREFIX:-/opt/homebrew}/share"
+
+# Falls back to the completion system when nothing in history matches
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Must stay last: it wraps every widget defined before it
+source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
