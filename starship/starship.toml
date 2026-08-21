@@ -45,3 +45,5 @@ format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
 success_symbol = "[❯](bold green)"
 
 error_symbol = "[❯](bold red)"
+
+vicmd_symbol = "[❮](bold yellow)"
