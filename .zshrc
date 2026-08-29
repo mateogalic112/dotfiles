@@ -13,8 +13,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # called. The shims replace themselves with the real commands on first use.
 NVM_SH="/opt/homebrew/opt/nvm/nvm.sh"
 if [ -s "$NVM_SH" ]; then
-  for cmd in nvm node npm npx corepack; do
-    eval "${cmd}() { unfunction nvm node npm npx corepack; . \"\$NVM_SH\"; ${cmd} \"\$@\" }"
+  for cmd in nvm node npm npx corepack yarn; do
+    eval "${cmd}() { unfunction nvm node npm npx corepack yarn; . \"${NVM_SH}\"; ${cmd} \"\$@\" }"
   done
   unset cmd
 fi
