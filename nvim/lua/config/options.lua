@@ -30,3 +30,7 @@ vim.opt.splitbelow = true
 -- Other
 vim.o.updatetime = 200
 vim.o.confirm = true
+
+-- Filetypes
+-- Nvim ships no detection for mdx
+vim.filetype.add({ extension = { mdx = "markdown" } })
