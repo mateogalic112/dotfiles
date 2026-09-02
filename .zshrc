@@ -66,7 +66,7 @@ nic() {
   tmux attach-session -t "$session_name"
 }
 
-# Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (nvim | claude)
+# Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (nvim | claude), config (dotfiles)
 nova() {
   local session_name="nova"
   local projects="$HOME/projects"
@@ -88,6 +88,9 @@ nova() {
   tmux split-window -h -t "$session_name":frontend.1 -c "$projects/nova-web"
   tmux send-keys -t "$session_name":frontend.1 'nvim' C-m
   tmux send-keys -t "$session_name":frontend.2 'claude' C-m
+
+  tmux new-window -t "$session_name" -n config -c "$HOME/dotfiles"
+  tmux send-keys -t "$session_name":config.1 'nvim' C-m
 
   tmux select-window -t "$session_name":backend
   tmux select-pane -t "$session_name":backend.1
