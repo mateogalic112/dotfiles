@@ -7,7 +7,6 @@ vim.pack.add({
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
-  "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/folke/flash.nvim",
@@ -23,7 +22,6 @@ require("plugins.gitsigns")
 require("plugins.diffview")
 require("plugins.conform")
 require("plugins.colorscheme")
-require("plugins.bufferline")
 require("plugins.lualine")
 require("plugins.autopairs")
 require("plugins.flash")

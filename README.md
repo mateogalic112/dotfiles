@@ -102,10 +102,12 @@ selected item, and signature hints while typing inside a call.
 
 | Key | Action |
 | --- | --- |
-| `<C-space>` | Open / toggle the docs popup |
+| `<C-space>` | Open the menu; with the menu open, toggle the docs popup |
 | `<C-n>` / `<C-p>` | Next / previous item |
 | `<C-y>` | Accept |
 | `<C-e>` | Cancel |
+| `<C-b>` / `<C-f>` | Scroll the docs popup |
+| `<C-k>` | Toggle the signature popup |
 | `<Tab>` / `<S-Tab>` | Jump between snippet placeholders |
 
 ## nvim-treesitter (`main` branch)
@@ -181,15 +183,6 @@ comments.
 | --- | --- |
 | `<M-e>` | Fast wrap — wrap the rest of the line in the pair under the cursor |
 
-## bufferline.nvim
-
-Buffer tabline with LSP diagnostic counts per buffer.
-
-| Key | Action |
-| --- | --- |
-| `<S-h>` / `<S-l>` | Previous / next buffer |
-| `<leader>bd` | Delete the current buffer |
-
 ## lualine.nvim
 
 Statusline: mode, branch, gitsigns diff counts, file path, diagnostics, filetype and
@@ -204,7 +197,7 @@ statusline strip, the cursor line number and the flash label readable.
 
 ## nvim-web-devicons
 
-Filetype icons for the picker, explorer, bufferline and lualine. Requires a Nerd Font
+Filetype icons for the picker, explorer and lualine. Requires a Nerd Font
 (Ghostty is configured with one).
 
 ## Core keymaps
@@ -214,6 +207,7 @@ Not plugin-specific, from `nvim/lua/config/keymaps.lua`:
 | Key | Action |
 | --- | --- |
 | `<Esc>` | Clear search highlight |
+| `<S-h>` / `<S-l>` | Previous / next buffer |
 | `<C-s>` | Save (works from normal, insert and visual) |
 
 ---
