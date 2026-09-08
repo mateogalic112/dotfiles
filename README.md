@@ -27,9 +27,9 @@ cd ~/dotfiles
 ```
 
 `install.sh` installs neovim, tmux, starship, ripgrep, fd, lazygit, stylua, node, go,
-ruby, the zsh plugins and the language servers via Homebrew, plus `vtsls` via npm and
-`gopls`/`goimports` via go — then symlinks every config. It is idempotent, so
-re-running it after a config change is safe.
+ruby, the zsh plugins, the language servers and JetBrainsMono Nerd Font via Homebrew,
+plus `vtsls` via npm and `gopls`/`goimports` via go — then symlinks every config. It
+is idempotent, so re-running it after a config change is safe.
 
 Neovim plugins and treesitter parsers install themselves on first launch. Tmux plugins
 install via tpm, which the script clones if missing.
@@ -197,8 +197,8 @@ statusline strip, the cursor line number and the flash label readable.
 
 ## nvim-web-devicons
 
-Filetype icons for the picker, explorer and lualine. Requires a Nerd Font
-(Ghostty is configured with one).
+Filetype icons for the picker, explorer and lualine. Requires a Nerd Font, which
+`install.sh` provisions and Ghostty is configured to use.
 
 ## Core keymaps
 

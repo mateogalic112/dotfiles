@@ -16,6 +16,11 @@ for pkg in "${BREW_PACKAGES[@]}"; do
   brew list --versions "$pkg" >/dev/null 2>&1 || brew install "$pkg"
 done
 
+BREW_CASKS=(font-jetbrains-mono-nerd-font)
+for cask in "${BREW_CASKS[@]}"; do
+  brew list --cask --versions "$cask" >/dev/null 2>&1 || brew install --cask "$cask"
+done
+
 command -v vtsls >/dev/null 2>&1 || npm install -g @vtsls/language-server
 
 # Go tooling lands in ~/go/bin, which .zprofile puts on PATH
