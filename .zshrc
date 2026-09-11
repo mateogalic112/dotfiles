@@ -26,6 +26,8 @@ export FZF_DEFAULT_OPTS='--height 60% --layout reverse --border --cycle'
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range :200 {}'"
 export FZF_ALT_C_OPTS="--preview 'ls -la {}'"
 
+eval "$(zoxide init zsh)"
+
 # Sourcing nvm.sh costs ~1.4s, so it is deferred until a node tool is first
 # called. The shims replace themselves with the real commands on first use.
 NVM_SH="/opt/homebrew/opt/nvm/nvm.sh"
