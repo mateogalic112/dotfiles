@@ -9,16 +9,9 @@ compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zcompdump"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# zsh auto-selects the vi keymap because $EDITOR is nvim. Bound explicitly here
-# so the keymap no longer changes silently with $EDITOR. Swap for -e to get
-# emacs keys (^A/^E/^R-history) instead.
 bindkey -v
 KEYTIMEOUT=20
 
-# fzf shell integration: ^R fuzzy history, ^T insert file at cursor, ^[c fuzzy
-# cd, plus **<TAB> completion. Must follow compinit (completion.zsh needs the
-# completion system) and precede zsh-syntax-highlighting, which wraps every
-# widget defined before it.
 FZF_SHELL="${HOMEBREW_PREFIX:-/opt/homebrew}/opt/fzf/shell"
 if [ -d "$FZF_SHELL" ]; then
   source "$FZF_SHELL/completion.zsh"
