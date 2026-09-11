@@ -9,6 +9,30 @@ compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zcompdump"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
+# zsh auto-selects the vi keymap because $EDITOR is nvim. Bound explicitly here
+# so the keymap no longer changes silently with $EDITOR. Swap for -e to get
+# emacs keys (^A/^E/^R-history) instead.
+bindkey -v
+KEYTIMEOUT=20
+
+# fzf shell integration: ^R fuzzy history, ^T insert file at cursor, ^[c fuzzy
+# cd, plus **<TAB> completion. Must follow compinit (completion.zsh needs the
+# completion system) and precede zsh-syntax-highlighting, which wraps every
+# widget defined before it.
+FZF_SHELL="${HOMEBREW_PREFIX:-/opt/homebrew}/opt/fzf/shell"
+if [ -d "$FZF_SHELL" ]; then
+  source "$FZF_SHELL/completion.zsh"
+  source "$FZF_SHELL/key-bindings.zsh"
+fi
+
+# fd respects .gitignore, keeping node_modules out of every picker
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+export FZF_DEFAULT_OPTS='--height 60% --layout reverse --border --cycle'
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=numbers --line-range :200 {}'"
+export FZF_ALT_C_OPTS="--preview 'ls -la {}'"
+
 # Sourcing nvm.sh costs ~1.4s, so it is deferred until a node tool is first
 # called. The shims replace themselves with the real commands on first use.
 NVM_SH="/opt/homebrew/opt/nvm/nvm.sh"
