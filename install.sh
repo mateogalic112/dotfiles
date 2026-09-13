@@ -26,6 +26,7 @@ command -v vtsls >/dev/null 2>&1 || npm install -g @vtsls/language-server
 # Go tooling lands in ~/go/bin, which .zprofile puts on PATH
 command -v gopls >/dev/null 2>&1 || go install golang.org/x/tools/gopls@latest
 command -v goimports >/dev/null 2>&1 || go install golang.org/x/tools/cmd/goimports@latest
+command -v dlv >/dev/null 2>&1 || go install github.com/go-delve/delve/cmd/dlv@latest
 
 # Neovim
 mkdir -p ~/.config
