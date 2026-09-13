@@ -28,7 +28,7 @@ cd ~/dotfiles
 
 `install.sh` installs neovim, tmux, starship, ripgrep, fd, lazygit, stylua, node, go,
 ruby, the zsh plugins, the language servers and JetBrainsMono Nerd Font via Homebrew,
-plus `vtsls` via npm and `gopls`/`goimports` via go — then symlinks every config. It
+plus `vtsls` via npm and `gopls`/`goimports`/`dlv` via go — then symlinks every config. It
 is idempotent, so re-running it after a config change is safe.
 
 Neovim plugins and treesitter parsers install themselves on first launch. Tmux plugins
@@ -157,6 +157,35 @@ if none is open, closes the open one otherwise.
 | `<leader>gd` | Toggle diff view |
 | `<leader>gh` | File history (current file) |
 | `<leader>gH` | Repo history |
+
+## nvim-dap (+ nvim-dap-go, nvim-dap-view)
+
+Debugger client for the Debug Adapter Protocol. `nvim-dap-go` registers Delve (`dlv`)
+as the Go adapter along with launch configs for the current file, package, tests and
+attaching to a running process. `nvim-dap-view` is the panel — scopes, watches,
+breakpoints, threads and REPL — and opens/closes with the session. All three are set up
+in `nvim/lua/plugins/dap.lua`.
+
+*Use case:* stepping through Go code instead of sprinkling prints. `<leader>dc` starts a
+session (pick a config) or continues a paused one; `<leader>dt` debugs just the test
+under the cursor, usually the fastest way in. Gutter signs: `●` breakpoint, `◆`
+conditional breakpoint, `▶` current stopped line.
+
+| Key | Mode | Action |
+| --- | --- | --- |
+| `<leader>db` | n | Toggle breakpoint |
+| `<leader>dB` | n | Conditional breakpoint (prompts for the condition) |
+| `<leader>dc` | n | Start / continue |
+| `<leader>dn` | n | Step over |
+| `<leader>di` | n | Step into |
+| `<leader>do` | n | Step out |
+| `<leader>dC` | n | Run to cursor |
+| `<leader>dl` | n | Rerun last session |
+| `<leader>dq` | n | Terminate |
+| `<leader>dt` | n | Debug nearest Go test |
+| `<leader>dT` | n | Debug last Go test |
+| `<leader>du` | n | Toggle the debug panel |
+| `<leader>dw` | n, x | Watch expression under cursor / selection |
 
 ## flash.nvim
 
