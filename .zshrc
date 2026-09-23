@@ -85,7 +85,7 @@ nic() {
   tmux attach-session -t "$session_name"
 }
 
-# Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (nvim | claude), config (dotfiles)
+# Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (nvim | claude)
 nova() {
   local session_name="nova"
   local projects="$HOME/projects"
@@ -108,8 +108,36 @@ nova() {
   tmux send-keys -t "$session_name":frontend.1 'nvim' C-m
   tmux send-keys -t "$session_name":frontend.2 'claude' C-m
 
-  tmux new-window -t "$session_name" -n config -c "$HOME/dotfiles"
-  tmux send-keys -t "$session_name":config.1 'nvim' C-m
+  tmux select-window -t "$session_name":backend
+  tmux select-pane -t "$session_name":backend.1
+
+  tmux attach-session -t "$session_name"
+}
+
+# Open the nutripro workspace in tmux: backend (nvim | claude), frontend (nvim | claude)
+nutri() {
+  local session_name="nutripro"
+  local projects="$HOME/projects"
+
+  if [[ -n "$TMUX" ]]; then
+    echo "Already in a tmux session. Detach first or run from outside tmux."
+    return 1
+  fi
+
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    tmux attach-session -t "$session_name"
+    return
+  fi
+
+  tmux new-session -d -s "$session_name" -n backend -c "$projects/nutripro-backend" -x "$(tput cols)" -y "$(tput lines)"
+  tmux split-window -h -t "$session_name":backend.1 -c "$projects/nutripro-backend"
+  tmux send-keys -t "$session_name":backend.1 'nvim' C-m
+  tmux send-keys -t "$session_name":backend.2 'claude' C-m
+
+  tmux new-window -t "$session_name" -n frontend -c "$projects/nutripro-frontend"
+  tmux split-window -h -t "$session_name":frontend.1 -c "$projects/nutripro-frontend"
+  tmux send-keys -t "$session_name":frontend.1 'nvim' C-m
+  tmux send-keys -t "$session_name":frontend.2 'claude' C-m
 
   tmux select-window -t "$session_name":backend
   tmux select-pane -t "$session_name":backend.1

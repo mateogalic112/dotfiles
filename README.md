@@ -290,7 +290,8 @@ Installed via Homebrew, sourced from `.zshrc`.
 | `kp <port>` | Kill whatever is listening on that port |
 | `gcp "<msg>"` | `git add .`, commit with the message, push |
 | `nic` | Open the current directory as a tmux session: nvim on the left (70%), claude top-right, terminal bottom-right |
-| `nova` | Open the nova workspace: `backend` window (atlas-edge \| nova-practice), `frontend` window (nvim \| claude), `config` window (dotfiles) |
+| `nova` | Open the nova workspace: `backend` window (atlas-edge \| nova-practice), `frontend` window (nvim \| claude) |
+| `nutri` | Open the nutripro workspace: `backend` window (nvim \| claude), `frontend` window (nvim \| claude) |
 
 `nvm` is deferred — `nvm`, `node`, `npm`, `npx`, `corepack` and `yarn` start as shims
 that source `nvm.sh` on first use and then replace themselves, keeping ~1.4s off shell
