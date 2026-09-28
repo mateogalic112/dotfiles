@@ -19,7 +19,7 @@ palette = 7=#ebdbb2
 palette = 15=#f2f2f2
 
 
-background-image = /Users/mateo/dotfiles/assets/gruvbox-dusk.png
+background-image = /Users/mateo/dotfiles/assets/gruvbox-dusk.jpg
 background-image-opacity = 0.8
 background-image-position = center
 background-image-fit = cover
