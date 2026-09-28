@@ -85,7 +85,7 @@ nic() {
   tmux attach-session -t "$session_name"
 }
 
-# Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (nvim | claude)
+# Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (shell | claude)
 nova() {
   local session_name="nova"
   local projects="$HOME/projects"
@@ -105,7 +105,6 @@ nova() {
 
   tmux new-window -t "$session_name" -n frontend -c "$projects/nova-web"
   tmux split-window -h -t "$session_name":frontend.1 -c "$projects/nova-web"
-  tmux send-keys -t "$session_name":frontend.1 'nvim' C-m
   tmux send-keys -t "$session_name":frontend.2 'claude' C-m
 
   tmux select-window -t "$session_name":backend
@@ -114,7 +113,7 @@ nova() {
   tmux attach-session -t "$session_name"
 }
 
-# Open the nutripro workspace in tmux: backend (nvim | claude), frontend (nvim | claude)
+# Open the nutripro workspace in tmux: backend (shell | claude), frontend (shell | claude)
 nutri() {
   local session_name="nutripro"
   local projects="$HOME/projects"
@@ -131,12 +130,10 @@ nutri() {
 
   tmux new-session -d -s "$session_name" -n backend -c "$projects/nutripro-backend" -x "$(tput cols)" -y "$(tput lines)"
   tmux split-window -h -t "$session_name":backend.1 -c "$projects/nutripro-backend"
-  tmux send-keys -t "$session_name":backend.1 'nvim' C-m
   tmux send-keys -t "$session_name":backend.2 'claude' C-m
 
   tmux new-window -t "$session_name" -n frontend -c "$projects/nutripro-frontend"
   tmux split-window -h -t "$session_name":frontend.1 -c "$projects/nutripro-frontend"
-  tmux send-keys -t "$session_name":frontend.1 'nvim' C-m
   tmux send-keys -t "$session_name":frontend.2 'claude' C-m
 
   tmux select-window -t "$session_name":backend
