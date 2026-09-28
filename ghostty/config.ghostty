@@ -63,4 +63,6 @@ scrollback-limit = 100000000
 # ─────────────────────────────────────────────
 
 shell-integration = zsh
+# The integration's default "cursor" feature forces a bar at the prompt, overriding cursor-style.
+shell-integration-features = no-cursor
 
