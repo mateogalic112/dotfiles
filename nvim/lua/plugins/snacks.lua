@@ -14,8 +14,13 @@ require("snacks").setup({
 
   picker = {
     sources = {
+      files = { hidden = true, ignored = true },
+      grep = { hidden = true, ignored = true },
+      grep_word = { hidden = true, ignored = true },
       -- Centered float instead of the default sidebar
       explorer = {
+        hidden = true,
+        ignored = true,
         layout = { preset = "default", preview = true, layout = { backdrop = 60 } },
         auto_close = true,
         jump = { close = true },
