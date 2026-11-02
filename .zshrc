@@ -44,9 +44,9 @@ kp() {
 }
 
 # Quick commit & push
-gcp() {
+gcap() {
   if [[ $# -eq 0 ]]; then
-    echo "usage: gcp <commit message>" >&2
+    echo "usage: gcap <commit message>" >&2
     return 1
   fi
   git add . && git commit -m "$*" && git push
