@@ -45,9 +45,11 @@ kp() {
 
 # Quick commit & push
 gcp() {
-  git add .
-  git commit -m "$1"
-  git push
+  if [[ $# -eq 0 ]]; then
+    echo "usage: gcp <commit message>" >&2
+    return 1
+  fi
+  git add . && git commit -m "$*" && git push
 }
 
 # Open project in tmux: nvim (left 70%, full-height) | claude (top-right 60%) / terminal (bottom-right 40%)
