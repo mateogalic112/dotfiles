@@ -1,3 +1,5 @@
+local palette = require("gruvbox").palette
+
 require("gruvbox").setup({
   -- Cells with an explicit background paint over Ghostty's background image,
   -- so the editor surface stays unpainted and lets it through.
@@ -11,6 +13,9 @@ require("gruvbox").setup({
     -- FlashLabel links to Substitute, which links to Search, so the label would
     -- otherwise render in the same yellow as the matches it labels
     FlashLabel = { fg = "#1d2021", bg = "#8ec07c", bold = true },
+    LspReferenceText = { bg = palette.dark2 },
+    LspReferenceRead = { bg = palette.dark2 },
+    LspReferenceWrite = { bg = palette.dark2 },
   },
 })
 
