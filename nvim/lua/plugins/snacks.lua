@@ -7,10 +7,10 @@ require("snacks").setup({
     },
   },
 
-  bigfile = { enabled = true }, -- reduces expensive features for very large files
-  quickfile = { enabled = true }, -- displays files faster during startup
-  notifier = { enabled = true }, -- nicer notifications
-  words = { enabled = true }, -- auto-highlights LSP refs under cursor
+  bigfile = { enabled = true },
+  quickfile = { enabled = true },
+  notifier = { enabled = true },
+  words = { enabled = true },
 
   picker = {
     sources = {
@@ -25,7 +25,6 @@ require("snacks").setup({
         auto_close = true,
         jump = { close = true },
       },
-      lazygit = { enabled = true },
       -- Defaults to git_checkout, which checks the commit out by SHA and
       -- detaches HEAD. The preview already shows the diff, so just close
       git_log = { confirm = "close" },
