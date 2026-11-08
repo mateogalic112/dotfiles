@@ -30,6 +30,7 @@ vim.opt.splitbelow = true
 -- Other
 vim.o.updatetime = 200
 vim.o.confirm = true
+vim.o.wrap = false
 
 -- Filetypes
 -- Nvim ships no detection for mdx
