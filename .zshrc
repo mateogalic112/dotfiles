@@ -90,7 +90,7 @@ nic() {
 # Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (shell | claude)
 nova() {
   local session_name="nova"
-  local projects="$HOME/projects/nova"
+  local projects="$HOME/projects"
 
   if [[ -n "$TMUX" ]]; then
     echo "Already in a tmux session. Detach first or run from outside tmux."
@@ -118,7 +118,7 @@ nova() {
 # Open the nutripro workspace in tmux: backend (shell | claude), frontend (shell | claude)
 nutri() {
   local session_name="nutripro"
-  local projects="$HOME/projects/nova"
+  local projects="$HOME/projects"
 
   if [[ -n "$TMUX" ]]; then
     echo "Already in a tmux session. Detach first or run from outside tmux."
