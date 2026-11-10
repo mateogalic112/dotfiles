@@ -90,7 +90,7 @@ nic() {
 # Open the nova workspace in tmux: backend (atlas-edge | nova-practice), frontend (shell | claude)
 nova() {
   local session_name="nova"
-  local projects="$HOME/projects"
+  local projects="$HOME/projects/nova"
 
   if [[ -n "$TMUX" ]]; then
     echo "Already in a tmux session. Detach first or run from outside tmux."
