@@ -32,6 +32,13 @@ vim.o.updatetime = 200
 vim.o.confirm = true
 vim.o.wrap = false
 
+-- Folding (treesitter-based)
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99 -- open files fully unfolded
+vim.o.foldlevelstart = 99
+vim.o.foldtext = "" -- keep syntax highlighting on the folded line
+
 -- Filetypes
 -- Nvim ships no detection for mdx
 vim.filetype.add({ extension = { mdx = "markdown" } })
