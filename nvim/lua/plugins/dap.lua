@@ -8,6 +8,9 @@ require("dap-view").setup({
   auto_toggle = true,
 })
 
+-- Shows variable values inline next to the code while stepping
+require("nvim-dap-virtual-text").setup({})
+
 vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "◆", texthl = "DiagnosticWarn" })
 vim.fn.sign_define("DapStopped", { text = "▶", texthl = "DiagnosticOk", linehl = "Visual" })
