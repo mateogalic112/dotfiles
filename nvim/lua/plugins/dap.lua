@@ -38,3 +38,6 @@ end, { desc = "Debug Last Test" })
 
 vim.keymap.set("n", "<leader>du", "<cmd>DapViewToggle<cr>", { desc = "Toggle Debug View" })
 vim.keymap.set({ "n", "x" }, "<leader>dw", "<cmd>DapViewWatch<cr>", { desc = "Watch Expression" })
+
+-- Floating window with the full (expandable) value of the expression under the cursor; `!` focuses it
+vim.keymap.set("n", "<leader>dh", "<cmd>DapViewHover!<cr>", { desc = "Hover Value" })
