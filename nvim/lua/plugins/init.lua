@@ -13,6 +13,7 @@ vim.pack.add({
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/leoluz/nvim-dap-go",
   "https://github.com/igorlfs/nvim-dap-view",
+  "https://github.com/theHamsta/nvim-dap-virtual-text",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
 })
