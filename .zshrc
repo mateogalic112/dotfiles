@@ -104,9 +104,12 @@ nova() {
 
   tmux new-session -d -s "$session_name" -n backend -c "$projects/atlas-edge" -x "$(tput cols)" -y "$(tput lines)"
   tmux split-window -h -t "$session_name":backend.1 -c "$projects/nova-practice"
+  tmux send-keys -t "$session_name":backend.1 'git pull' C-m
+  tmux send-keys -t "$session_name":backend.2 'git pull' C-m
 
   tmux new-window -t "$session_name" -n frontend -c "$projects/nova-web"
   tmux split-window -h -t "$session_name":frontend.1 -c "$projects/nova-web"
+  tmux send-keys -t "$session_name":frontend.1 'git pull' C-m
   tmux send-keys -t "$session_name":frontend.2 'claude' C-m
 
   tmux select-window -t "$session_name":backend
