@@ -160,3 +160,4 @@ bindkey '^Y' autosuggest-accept
 
 # Must stay last: it wraps every widget defined before it
 source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
