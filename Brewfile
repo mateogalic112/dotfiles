@@ -42,5 +42,6 @@ brew "zsh-syntax-highlighting"
 if OS.mac?
   cask "font-jetbrains-mono-nerd-font"
   cask "1password-cli"
-  cask "docker-desktop"
+  # Skip when Docker.app was installed outside Homebrew, or the cask refuses to overwrite it
+  cask "docker-desktop" unless File.exist?("/Applications/Docker.app")
 end
