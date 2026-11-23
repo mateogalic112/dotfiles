@@ -20,13 +20,13 @@ brew "stripe"
 # Formatters, linters & parsers
 brew "stylua"
 brew "shellcheck"
+brew "prettier"
 brew "tree-sitter-cli"
 
 # Languages
 brew "node"
 brew "nvm"
 brew "go"
-brew "ruby"
 
 # Language servers
 brew "vscode-langservers-extracted"
