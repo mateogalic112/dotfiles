@@ -11,15 +11,18 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-BREW_PACKAGES=(neovim tmux starship ripgrep fd fzf bat zoxide btop gh lazygit stylua tree-sitter-cli node go ruby vscode-langservers-extracted tailwindcss-language-server lua-language-server bash-language-server zsh-autosuggestions zsh-syntax-highlighting)
+BREW_PACKAGES=(neovim tmux starship ripgrep fd fzf bat zoxide btop gh lazygit stylua tree-sitter-cli node go ruby vscode-langservers-extracted tailwindcss-language-server lua-language-server bash-language-server zsh-autosuggestions zsh-syntax-highlighting nvm)
 for pkg in "${BREW_PACKAGES[@]}"; do
   brew list --versions "$pkg" >/dev/null 2>&1 || brew install "$pkg"
 done
 
-BREW_CASKS=(font-jetbrains-mono-nerd-font)
+BREW_CASKS=(font-jetbrains-mono-nerd-font 1password-cli)
 for cask in "${BREW_CASKS[@]}"; do
   brew list --cask --versions "$cask" >/dev/null 2>&1 || brew install --cask "$cask"
 done
+
+# nvm keeps its Node versions here (NVM_DIR in .zshenv); brew does not create it
+mkdir -p ~/.nvm
 
 command -v vtsls >/dev/null 2>&1 || npm install -g @vtsls/language-server
 
