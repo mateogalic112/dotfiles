@@ -26,7 +26,7 @@ cd ~/dotfiles
 ./install.sh
 ```
 
-`install.sh` installs neovim, tmux, starship, ripgrep, fd, lazygit, stylua, node, go,
+`install.sh` installs neovim, tmux, starship, ripgrep, fd, lazygit, stylua, tree-sitter-cli, node, go,
 ruby, the zsh plugins, the language servers and JetBrainsMono Nerd Font via Homebrew,
 plus `vtsls` via npm and `gopls`/`goimports`/`dlv` via go — then symlinks every config. It
 is idempotent, so re-running it after a config change is safe.
