@@ -5,5 +5,6 @@ path=(
   "$HOME/go/bin"
   "$HOME/.cargo/bin"
   "$HOME/.docker/bin"
+  "$HOME/.stripe/bin"
   $path
 )

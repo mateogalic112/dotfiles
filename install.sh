@@ -5,60 +5,74 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Installing dotfiles..."
 
-# Dependencies
+# Homebrew isn't on PATH until .zprofile is linked, so load it from its default location
+for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  if [ -x "$brew_bin" ]; then
+    eval "$("$brew_bin" shellenv)"
+    break
+  fi
+done
+
 if ! command -v brew >/dev/null 2>&1; then
   echo "Homebrew is required: https://brew.sh"
   exit 1
 fi
 
-BREW_PACKAGES=(neovim tmux starship ripgrep fd fzf bat zoxide btop gh lazygit stylua tree-sitter-cli node go ruby vscode-langservers-extracted tailwindcss-language-server lua-language-server bash-language-server zsh-autosuggestions zsh-syntax-highlighting nvm)
-for pkg in "${BREW_PACKAGES[@]}"; do
-  brew list --versions "$pkg" >/dev/null 2>&1 || brew install "$pkg"
-done
+# Go tooling lands in ~/go/bin; .zprofile adds it for shells, this adds it for the checks below
+export PATH="$HOME/go/bin:$PATH"
 
-BREW_CASKS=(font-jetbrains-mono-nerd-font 1password-cli)
-for cask in "${BREW_CASKS[@]}"; do
-  brew list --cask --versions "$cask" >/dev/null 2>&1 || brew install --cask "$cask"
-done
+# Dependencies (see Brewfile)
+brew bundle --file="$DOTFILES/Brewfile"
 
 # nvm keeps its Node versions here (NVM_DIR in .zshenv); brew does not create it
 mkdir -p ~/.nvm
 
 command -v vtsls >/dev/null 2>&1 || npm install -g @vtsls/language-server
 
-# Go tooling lands in ~/go/bin, which .zprofile puts on PATH
 command -v gopls >/dev/null 2>&1 || go install golang.org/x/tools/gopls@latest
 command -v goimports >/dev/null 2>&1 || go install golang.org/x/tools/cmd/goimports@latest
 command -v dlv >/dev/null 2>&1 || go install github.com/go-delve/delve/cmd/dlv@latest
 
+# Symlink $DOTFILES/<src> to <dest>, backing up any real file or folder already there
+link() {
+  local src="$DOTFILES/$1" dest="$2"
+  mkdir -p "$(dirname "$dest")"
+  if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+    local backup
+    backup="$dest.backup.$(date +%Y%m%d%H%M%S)"
+    mv "$dest" "$backup"
+    echo "Backed up existing $dest to $backup"
+  fi
+  # -n: replace an existing link to a folder instead of creating a link inside it
+  ln -sfn "$src" "$dest"
+}
+
 # Neovim
-mkdir -p ~/.config
-ln -sfn "$DOTFILES/nvim" ~/.config/nvim
+link nvim ~/.config/nvim
 
 # Shell
-ln -sf "$DOTFILES/.zshrc" ~/.zshrc
-ln -sf "$DOTFILES/.zshenv" ~/.zshenv
-ln -sf "$DOTFILES/.zprofile" ~/.zprofile
+link .zshrc ~/.zshrc
+link .zshenv ~/.zshenv
+link .zprofile ~/.zprofile
 
 # Git
-ln -sf "$DOTFILES/.gitconfig" ~/.gitconfig
-mkdir -p ~/.config/git
-ln -sf "$DOTFILES/git/ignore" ~/.config/git/ignore
+link .gitconfig ~/.gitconfig
+link git/ignore ~/.config/git/ignore
 
 # Claude Code
-mkdir -p ~/.claude
-ln -sf "$DOTFILES/claude/settings.json" ~/.claude/settings.json
-ln -sf "$DOTFILES/claude/statusline-command.sh" ~/.claude/statusline-command.sh
+link claude/settings.json ~/.claude/settings.json
+link claude/statusline-command.sh ~/.claude/statusline-command.sh
 
 # Starship
-ln -sf "$DOTFILES/starship/starship.toml" ~/.config/starship.toml
+link starship/starship.toml ~/.config/starship.toml
 
-# Ghostty
-mkdir -p ~/.config/ghostty
-ln -sf "$DOTFILES/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
+# Ghostty (macOS only)
+if [[ "$OSTYPE" == darwin* ]]; then
+  link ghostty/config.ghostty ~/.config/ghostty/config.ghostty
+fi
 
 # Tmux
-ln -sf "$DOTFILES/.tmux.conf" ~/.tmux.conf
+link .tmux.conf ~/.tmux.conf
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
