@@ -9,5 +9,8 @@ export VISUAL="$EDITOR"
 # Required by mvn for the Java projects in ~/projects
 export JAVA_HOME="/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
 
+# rg only reads a config file when this is set; here so nvim and scripts get it too
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 # Read by the lazy nvm loader in .zshrc; free to set here so scripts see it too
 export NVM_DIR="$HOME/.nvm"

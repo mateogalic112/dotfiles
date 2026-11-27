@@ -59,6 +59,9 @@ link .zprofile ~/.zprofile
 link .gitconfig ~/.gitconfig
 link git/ignore ~/.config/git/ignore
 
+# Ripgrep
+link .ripgreprc ~/.ripgreprc
+
 # Claude Code
 link claude/settings.json ~/.claude/settings.json
 link claude/statusline-command.sh ~/.claude/statusline-command.sh

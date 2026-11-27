@@ -1,0 +1,20 @@
+# Read by rg via RIPGREP_CONFIG_PATH (.zshenv). One flag per line, no quoting.
+# Bypass for a single search with: rg --no-config <pattern>
+
+# Lowercase pattern ignores case; any capital makes it exact (matches nvim grepprg)
+--smart-case
+
+# Search dotfiles (.github/, .env.example, configs); .gitignore is still respected
+--hidden
+
+# --hidden would otherwise descend into git internals, which .gitignore doesn't cover
+--glob=!.git
+
+# Lockfiles bury real hits whenever you search for a package name
+--glob=!*.lock
+--glob=!package-lock.json
+--glob=!pnpm-lock.yaml
+
+# Minified bundles and source maps have huge lines; show a 200-char preview instead
+--max-columns=200
+--max-columns-preview
