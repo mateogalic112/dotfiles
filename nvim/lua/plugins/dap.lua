@@ -3,6 +3,67 @@ local dap = require("dap")
 -- Registers the delve adapter plus launch configs (file, package, test, attach)
 require("dap-go").setup()
 
+-- Node/TypeScript via vscode-js-debug (installed to ~/.local/share/js-debug by install.sh)
+dap.adapters["pwa-node"] = {
+  type = "server",
+  host = "localhost",
+  port = "${port}",
+  executable = {
+    command = "node",
+    args = { vim.fn.expand("~/.local/share/js-debug/src/dapDebugServer.js"), "${port}" },
+  },
+}
+
+local js_configs = {
+  {
+    type = "pwa-node",
+    request = "launch",
+    name = "Launch current file",
+    program = "${file}",
+    cwd = "${workspaceFolder}",
+    sourceMaps = true,
+    skipFiles = { "<node_internals>/**", "**/node_modules/**" },
+  },
+  {
+    type = "pwa-node",
+    request = "launch",
+    name = "Launch npm script",
+    runtimeExecutable = "npm",
+    runtimeArgs = function()
+      return { "run", vim.fn.input("npm run ", "dev") }
+    end,
+    cwd = "${workspaceFolder}",
+    sourceMaps = true,
+    console = "integratedTerminal",
+    skipFiles = { "<node_internals>/**", "**/node_modules/**" },
+  },
+  {
+    -- For a process started with `node --inspect` (e.g. in another tmux pane or a container on 9229)
+    type = "pwa-node",
+    request = "attach",
+    name = "Attach to process",
+    processId = require("dap.utils").pick_process,
+    cwd = "${workspaceFolder}",
+    sourceMaps = true,
+    skipFiles = { "<node_internals>/**", "**/node_modules/**" },
+  },
+  {
+    type = "pwa-node",
+    request = "attach",
+    name = "Attach to port",
+    port = function()
+      return tonumber(vim.fn.input("Inspector port: ", "9229"))
+    end,
+    cwd = "${workspaceFolder}",
+    sourceMaps = true,
+    skipFiles = { "<node_internals>/**", "**/node_modules/**" },
+  },
+}
+
+for _, ft in ipairs({ "javascript", "typescript", "javascriptreact", "typescriptreact" }) do
+  dap.configurations[ft] = js_configs
+end
+
 -- Opens the scopes/breakpoints/repl panel when a session starts, closes it when it ends
 require("dap-view").setup({
   auto_toggle = true,

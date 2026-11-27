@@ -33,6 +33,13 @@ command -v gopls >/dev/null 2>&1 || go install golang.org/x/tools/gopls@latest
 command -v goimports >/dev/null 2>&1 || go install golang.org/x/tools/cmd/goimports@latest
 command -v dlv >/dev/null 2>&1 || go install github.com/go-delve/delve/cmd/dlv@latest
 
+# vscode-js-debug: the Node/TS debug adapter for nvim-dap (not on brew or npm), unpacks to ~/.local/share/js-debug
+if [ ! -f ~/.local/share/js-debug/src/dapDebugServer.js ]; then
+  mkdir -p ~/.local/share
+  curl -fsSL "$(curl -fsSL https://api.github.com/repos/microsoft/vscode-js-debug/releases/latest |
+    grep -o 'https://[^"]*js-debug-dap-v[^"]*\.tar\.gz')" | tar -xz -C ~/.local/share
+fi
+
 # Symlink $DOTFILES/<src> to <dest>, backing up any real file or folder already there
 link() {
   local src="$DOTFILES/$1" dest="$2"
